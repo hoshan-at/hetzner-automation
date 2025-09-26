@@ -1,5 +1,3 @@
-ssh/
-
 # Terraform state and lock files
 .terraform/
 *.tfstate
