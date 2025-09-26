@@ -1,0 +1,14 @@
+services:
+  terraform:
+    image: hashicorp/terraform:1.8
+    env_file: .env
+    working_dir: /app
+    volumes:
+      - ./project:/app
+
+  ansible:
+    image: cytopia/ansible:latest-tools
+    working_dir: /app
+    volumes:
+      - ./project:/app
+      - ./ssh:/root/.ssh:ro

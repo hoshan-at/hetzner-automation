@@ -1,0 +1,25 @@
+---
+- name: Install and configure nginx
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Allow HTTP traffic
+      ansible.builtin.ufw:
+        rule: allow
+        port: '80'
+        proto: tcp

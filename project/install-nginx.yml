@@ -1,0 +1,19 @@
+---
+- name: Install and configure Nginx web server
+  # THIS IS THE OTHER CRITICAL PART
+  # This targets the group name we defined in the Terraform label.
+  hosts: webservers
+  become: yes # Run tasks as root (sudo)
+  tasks:
+    - name: Ensure connectivity
+      ansible.builtin.ping:
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present

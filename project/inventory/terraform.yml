@@ -1,0 +1,8 @@
+# Dynamic inventory from Terraform state
+plugin: ansible.builtin.terraform
+project_path: /ansible
+keyed_groups:
+  - key: labels.ansible_group
+    prefix: ""
+compose:
+  ansible_host: ipv4_address

@@ -1,0 +1,13 @@
+ssh/
+
+# Terraform state and lock files
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Generated Ansible inventory
+project/inventory/hosts
+
+# Environment variables
+.env

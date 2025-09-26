@@ -1,0 +1,8 @@
+services:
+  terraform:
+    image: hashicorp/terraform:latest # For production, pin to a specific version like 1.7.5
+    volumes:
+      - .:/infra
+    working_dir: /infra
+    env_file:
+      - .env
