@@ -45,7 +45,14 @@ This one-way data flow (`Terraform -> Inventory File -> Ansible`) creates a clea
 
 ## Workflow
 
+All commands should be run from within the `project` directory.
+
 This project uses `docker compose run` to execute commands in temporary containers, ensuring a clean and stateless workflow. The `--rm` flag automatically removes the container after each command.
+
+First, change into the project directory:
+```bash
+cd project
+```
 
 *   **Initialize Terraform (run once):**
     ```bash

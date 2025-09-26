@@ -12,7 +12,7 @@ provider "hcloud" {}
 # Look up the SSH key you added to your Hetzner Cloud project
 data "hcloud_ssh_key" "default" {
   # IMPORTANT: Change this to the name you gave your key in the Hetzner Cloud console
-  name = "your-key-name-in-hetzner"
+  name = "automation"
 }
 
 resource "hcloud_server" "web_server" {
