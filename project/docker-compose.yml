@@ -1,8 +1,14 @@
 services:
   terraform:
-    image: hashicorp/terraform:latest # For production, pin to a specific version like 1.7.5
+    image: hashicorp/terraform:1.8
+    env_file: .env
+    working_dir: /app
     volumes:
-      - .:/infra
-    working_dir: /infra
-    env_file:
-      - .env
+      - .:/app
+
+  ansible:
+    image: cytopia/ansible:latest-tools
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ../ssh:/root/.ssh:ro
